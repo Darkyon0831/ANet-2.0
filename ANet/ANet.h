@@ -86,7 +86,7 @@ extern "C"
 	// header: The header to package to an single buffer
 	// headerSize: The size of the given header
 	// returnType: The full buffer
-	ANET_API char* PackageStructA(NetworkInterface* netHandler, char* buffer, size_t bufferSize, void* header, size_t headerSize);
+	ANET_API char* PackageStructA(NetworkInterface* netHandler, char* buffer, size_t bufferSize, int startIndex, void* header, size_t headerSize);
 
 	// Unpackage the buffer and struct from the given buffer
 	// buffer: The entire buffer containing the header and the buffer
@@ -94,7 +94,7 @@ extern "C"
 	// header: The header dataType to save the header data into
 	// headerSize: The size of the given header
 	// returnType: The small buffer in the given buffer
-	ANET_API char* UnpackageStructA(NetworkInterface* netHandler, char* buffer, size_t bufferSize, void* header, size_t headerSize);
+	ANET_API char* UnpackageStructA(NetworkInterface* netHandler, char* buffer, size_t bufferSize, int startIndex, void* header, size_t headerSize);
 
 	// Unpackage the buffer to and given dataType and header
 	// buffer: The entire buffer containing the header and the smaller buffer

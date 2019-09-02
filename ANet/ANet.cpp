@@ -105,14 +105,14 @@ void AddSocket(NetworkInterface* netHandler, SOCKET socket, NetworkInterface::Pr
 	netHandler->AddSocket(socket, protocolType);
 }
 
-char* PackageStructA(NetworkInterface* netHandler, char* buffer, size_t bufferSize, void* header, size_t headerSize)
+char* PackageStructA(NetworkInterface* netHandler, char* buffer, size_t bufferSize, int startIndex, void* header, size_t headerSize)
 {
-	return netHandler->PackageStruct(buffer, bufferSize, header, headerSize);
+	return netHandler->PackageStruct(&buffer[startIndex], bufferSize, header, headerSize);
 }
 
-char* UnpackageStructA(NetworkInterface* netHandler, char* buffer, size_t bufferSize, void* header, size_t headerSize)
+char* UnpackageStructA(NetworkInterface* netHandler, char* buffer, size_t bufferSize, int startIndex, void* header, size_t headerSize)
 {
-	return netHandler->UnpackageStruct(buffer, bufferSize, header, headerSize);
+	return netHandler->UnpackageStruct(&buffer[startIndex], bufferSize, header, headerSize);
 }
 
 void UnpackageStructToA(NetworkInterface* netHandler, char* buffer, size_t bufferSize, void* header, size_t headerSize, void* bufferTo)
