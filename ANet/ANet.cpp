@@ -117,7 +117,7 @@ char* UnpackageStructA(NetworkInterface* netHandler, char* buffer, size_t buffer
 
 char* PackageA(NetworkInterface* netHandler, void* bufferStruct, size_t structSize, void* header, size_t headerSize)
 {
-	return netHandler->Package(bufferStruct, structSize, header, headerSize)
+	return netHandler->Package(bufferStruct, structSize, header, headerSize);
 }
 
 void UnpackageStructToA(NetworkInterface* netHandler, char* buffer, size_t bufferSize, void* header, size_t headerSize, void* bufferTo)
