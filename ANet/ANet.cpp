@@ -115,6 +115,11 @@ char* UnpackageStructA(NetworkInterface* netHandler, char* buffer, size_t buffer
 	return netHandler->UnpackageStruct(&buffer[startIndex], bufferSize, header, headerSize);
 }
 
+char* PackageA(NetworkInterface* netHandler, void* bufferStruct, size_t structSize, void* header, size_t headerSize)
+{
+	return netHandler->Package(bufferStruct, structSize, header, headerSize)
+}
+
 void UnpackageStructToA(NetworkInterface* netHandler, char* buffer, size_t bufferSize, void* header, size_t headerSize, void* bufferTo)
 {
 	netHandler->UnpackageStructTo(buffer, bufferSize, header, headerSize, bufferTo);
@@ -143,6 +148,11 @@ SocketData GetSocketData(NetworkInterface* netHandler, SOCKET socket)
 void GetStructA(NetworkInterface* netHandler, char* buffer, size_t startAt, void* header, size_t headerSize)
 {
 	netHandler->GetStruct(buffer, startAt, header, headerSize);
+}
+
+void CopyBuffer(char* to, int toStartIndex, char* from, int fromStartIndex, size_t size)
+{
+	memcpy(&to[toStartIndex], &from[fromStartIndex], size);
 }
 
 void ClearBuffer(char* buffer)

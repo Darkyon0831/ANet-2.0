@@ -96,6 +96,8 @@ extern "C"
 	// returnType: The small buffer in the given buffer
 	ANET_API char* UnpackageStructA(NetworkInterface* netHandler, char* buffer, size_t bufferSize, int startIndex, void* header, size_t headerSize);
 
+	ANET_API char* PackageA(NetworkInterface* netHandler, void* bufferStruct, size_t structSize, void* header, size_t headerSize);
+
 	// Unpackage the buffer to and given dataType and header
 	// buffer: The entire buffer containing the header and the smaller buffer
 	// bufferSize: The size of the given buffer
@@ -113,6 +115,8 @@ extern "C"
 	// header: The header dataType to save the data into
 	// headerSize: The size of the given header
 	ANET_API void GetStructA(NetworkInterface* netHandler, char* buffer, size_t startAt, void* header, size_t headerSize);
+
+	ANET_API void CopyBuffer(char* to, int toStartIndex, char* from, int fromStartIndex, size_t size);
 
 	// Clear the memory of the given buffer
 	// buffer: The buffer to clear the memory from

@@ -104,6 +104,9 @@ public:
 	// Package and buffer and struct into an single buffer
 	char* PackageStruct(char* buffer, size_t bufferSize, void* header, size_t headerSize);
 
+	// Package an struct buffer and header into an single buffer
+	char* Package(void* bufferStruct, size_t structSize, void* header, size_t headerSize);
+
 	// Unpackage the buffer and struct from the given buffer
 	char* UnpackageStruct(char* buffer, size_t bufferSize, void* header, size_t headerSize);
 

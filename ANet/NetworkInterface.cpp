@@ -345,6 +345,16 @@ char* NetworkInterface::PackageStruct(char* buffer, size_t bufferSize, void* hea
 	return pBuffer;
 }
 
+char* NetworkInterface::Package(void* bufferStruct, size_t structSize, void* header, size_t headerSize)
+{
+	char* buffer = new char[structSize + headerSize];
+
+	memcpy(&buffer[0], bufferStruct, structSize);
+	memcpy(&buffer[structSize], header, headerSize);
+
+	return buffer;
+}
+
 char* NetworkInterface::UnpackageStruct(char* buffer, size_t bufferSize, void* header, size_t headerSize)
 {
 	// Get the header
